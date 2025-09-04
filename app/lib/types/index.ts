@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 // User types
 export interface User {
   id: string;
@@ -60,3 +62,13 @@ export interface RegisterFormData {
   email: string;
   password: string;
 }
+
+// Zod field errors type
+export type ZodFieldErrors = {
+  name?: string[];
+  email?: string[];
+  password?: string[];
+};
+
+// Auth action return type
+export type AuthActionReturn = { error: ZodFieldErrors | string | null };
